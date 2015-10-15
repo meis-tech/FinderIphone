@@ -7,13 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		161596A81BBECA6500C07C98 /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161596A71BBECA6500C07C98 /* ShowViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		161FCBA61BB8757F001B7F45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161FCBA51BB8757F001B7F45 /* AppDelegate.swift */; };
-		161FCBA81BB8757F001B7F45 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161FCBA71BB8757F001B7F45 /* ViewController.swift */; };
+		161FCBA81BB8757F001B7F45 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161FCBA71BB8757F001B7F45 /* HomeViewController.swift */; };
 		161FCBAB1BB8757F001B7F45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 161FCBA91BB8757F001B7F45 /* Main.storyboard */; };
 		161FCBAD1BB8757F001B7F45 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 161FCBAC1BB8757F001B7F45 /* Assets.xcassets */; };
 		161FCBB01BB8757F001B7F45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 161FCBAE1BB8757F001B7F45 /* LaunchScreen.storyboard */; };
 		161FCBBB1BB8757F001B7F45 /* BeaconFinderiPhoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161FCBBA1BB8757F001B7F45 /* BeaconFinderiPhoneTests.swift */; };
 		161FCBC61BB8757F001B7F45 /* BeaconFinderiPhoneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161FCBC51BB8757F001B7F45 /* BeaconFinderiPhoneUITests.swift */; };
+		161FCBD61BB8762E001B7F45 /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161FCBD51BB8762E001B7F45 /* Properties.swift */; settings = {ASSET_TAGS = (); }; };
+		162186CE1BB8951800FBC687 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162186CD1BB8951800FBC687 /* File.swift */; settings = {ASSET_TAGS = (); }; };
+		162186D01BB8953600FBC687 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162186CF1BB8953600FBC687 /* SettingViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		162186D21BB8977300FBC687 /* beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162186D11BB8977300FBC687 /* beacon.swift */; settings = {ASSET_TAGS = (); }; };
+		16B9C58C1BB8A8F80099198C /* BeaconTableViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B9C58B1BB8A8F80099198C /* BeaconTableViewContoller.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		161596A71BBECA6500C07C98 /* ShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowViewController.swift; sourceTree = "<group>"; };
 		161FCBA21BB8757F001B7F45 /* BeaconFinderiPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeaconFinderiPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		161FCBA51BB8757F001B7F45 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		161FCBA71BB8757F001B7F45 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		161FCBA71BB8757F001B7F45 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		161FCBAA1BB8757F001B7F45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		161FCBAC1BB8757F001B7F45 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		161FCBAF1BB8757F001B7F45 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +54,11 @@
 		161FCBC11BB8757F001B7F45 /* BeaconFinderiPhoneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeaconFinderiPhoneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		161FCBC51BB8757F001B7F45 /* BeaconFinderiPhoneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconFinderiPhoneUITests.swift; sourceTree = "<group>"; };
 		161FCBC71BB8757F001B7F45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		161FCBD51BB8762E001B7F45 /* Properties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Properties.swift; sourceTree = "<group>"; };
+		162186CD1BB8951800FBC687 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		162186CF1BB8953600FBC687 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		162186D11BB8977300FBC687 /* beacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = beacon.swift; sourceTree = "<group>"; };
+		16B9C58B1BB8A8F80099198C /* BeaconTableViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconTableViewContoller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +109,15 @@
 		161FCBA41BB8757F001B7F45 /* BeaconFinderiPhone */ = {
 			isa = PBXGroup;
 			children = (
+				162186CD1BB8951800FBC687 /* File.swift */,
 				161FCBA51BB8757F001B7F45 /* AppDelegate.swift */,
-				161FCBA71BB8757F001B7F45 /* ViewController.swift */,
+				161FCBA71BB8757F001B7F45 /* HomeViewController.swift */,
+				162186D11BB8977300FBC687 /* beacon.swift */,
+				162186CF1BB8953600FBC687 /* SettingViewController.swift */,
+				161FCBD51BB8762E001B7F45 /* Properties.swift */,
 				161FCBA91BB8757F001B7F45 /* Main.storyboard */,
+				161596A71BBECA6500C07C98 /* ShowViewController.swift */,
+				16B9C58B1BB8A8F80099198C /* BeaconTableViewContoller.swift */,
 				161FCBAC1BB8757F001B7F45 /* Assets.xcassets */,
 				161FCBAE1BB8757F001B7F45 /* LaunchScreen.storyboard */,
 				161FCBB11BB8757F001B7F45 /* Info.plist */,
@@ -258,8 +276,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				161FCBA81BB8757F001B7F45 /* ViewController.swift in Sources */,
+				16B9C58C1BB8A8F80099198C /* BeaconTableViewContoller.swift in Sources */,
+				161FCBD61BB8762E001B7F45 /* Properties.swift in Sources */,
+				162186CE1BB8951800FBC687 /* File.swift in Sources */,
+				161596A81BBECA6500C07C98 /* ShowViewController.swift in Sources */,
+				161FCBA81BB8757F001B7F45 /* HomeViewController.swift in Sources */,
+				162186D21BB8977300FBC687 /* beacon.swift in Sources */,
 				161FCBA61BB8757F001B7F45 /* AppDelegate.swift in Sources */,
+				162186D01BB8953600FBC687 /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +510,7 @@
 				161FCBCC1BB8757F001B7F45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		161FCBCD1BB8757F001B7F45 /* Build configuration list for PBXNativeTarget "BeaconFinderiPhoneTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +519,7 @@
 				161FCBCF1BB8757F001B7F45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		161FCBD01BB8757F001B7F45 /* Build configuration list for PBXNativeTarget "BeaconFinderiPhoneUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +528,7 @@
 				161FCBD21BB8757F001B7F45 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
