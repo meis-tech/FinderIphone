@@ -9,7 +9,7 @@
 import Foundation
 //
 class beacon {
-    let major : NSNumber
+    let major : String?
     let minor : NSNumber
     var ID : String?
     var first_name : String?
@@ -23,16 +23,21 @@ class beacon {
     
     init(minor : NSNumber, major : NSNumber) {
         self.minor = minor
-        self.major = major
+        self.major = major.stringValue;
+        print(self.major);
+        print(self.minor);
+        print(self.major);
 //        self.ID = "0000000000000000"
-        print("In the initializer")
-        var urlString = "http://172.16.120.36:3000"
-        urlString += "/personal_health_records/give_health_record?id=12"
-        let url = NSURL(string : urlString)
+//        print("In the initializer")
+//        let urlString = NSString(format: "http://128.61.42.33:3000/personal_health_records/give_health_record?id=%s", major)
+        var urlString = "https://fathomless-inlet-3449.herokuapp.com";
+        urlString += "/personal_health_records/give_health_record?id=";
+        urlString += self.major!;
+        let url = NSURL(string : urlString as String)
         let request = NSURLRequest(URL: url!)
         let session = NSURLSession.sharedSession()
         print(urlString)
-        HTTPGet(urlString) {
+        HTTPGet(urlString as String) {
             (data: String, error: String?) -> Void in
             if error != nil {
 //                print(error)

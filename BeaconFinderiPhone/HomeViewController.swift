@@ -30,7 +30,7 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate{
         let region = CLBeaconRegion(proximityUUID: beaconUUID! , identifier: "yaya")
 
         var settings : Properties
-        settings = Properties(endPoint : "http://128.61.43.50:3000")
+        settings = Properties(endPoint : "http://128.61.64.146:3000")
         locationManager.delegate = self;
         if (CLLocationManager.authorizationStatus() != CLAuthorizationStatus.AuthorizedWhenInUse) {
             locationManager.requestWhenInUseAuthorization()

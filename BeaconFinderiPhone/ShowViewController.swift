@@ -19,6 +19,7 @@ class ShowViewController : UIViewController {
     @IBOutlet weak var chronic: UILabel!
     @IBOutlet weak var Orgon: UILabel!
     var bec : beacon?
+    var major : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,10 @@ class ShowViewController : UIViewController {
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request,completionHandler :
             {
                 data, response, error in
+                print("WTF???");
+                print(data);
+                print(response);
+                print(error);
                 if error != nil {
                     callback("", (error!.localizedDescription) as String)
                 } else {
@@ -54,8 +59,9 @@ class ShowViewController : UIViewController {
     
     @IBAction func Push(sender: AnyObject) {
         print("push was called")
-        var urlString = "http://172.16.120.36:3000"
-        urlString += "/emergency_alerts/create_alert_modaly?id=12"
+        var urlString = "https://fathomless-inlet-3449.herokuapp.com"
+        urlString += "/emergency_alerts/create_alert_modaly?id="
+        urlString += bec!.major!
         print(urlString)
         HTTPGet(urlString) {
             (data: String, error: String?) -> Void in
@@ -77,9 +83,12 @@ class ShowViewController : UIViewController {
                 myAlert.addButtonWithTitle("Ok")
                 myAlert.delegate = self
                 myAlert.show()
-
             }
         }
         sleep(4)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let DestinationVC = segue.destinationViewController as! HomeViewController
     }
 }

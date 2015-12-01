@@ -13,6 +13,7 @@ import CoreLocation
 class BeaconTableViewController : UITableViewController {
     var ourBeacons : [CLBeacon] = []
     var items : [beacon] = []
+    var indexOfSelectedPerson = 0;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,9 +46,16 @@ class BeaconTableViewController : UITableViewController {
         return cell
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        indexOfSelectedPerson = indexPath.row
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let sendbec = items[0]
-        let DestinationVC = segue.destinationViewController as! ShowViewController
-        DestinationVC.bec = sendbec
+//        if let cell = sender as? UITableView {
+//            let i = redditListTableView.indexPathForCell(cell)!.row
+            let sendbec = items[indexOfSelectedPerson]
+            let DestinationVC = segue.destinationViewController as! ShowViewController
+            DestinationVC.bec = sendbec
+//        }
     }
 }
