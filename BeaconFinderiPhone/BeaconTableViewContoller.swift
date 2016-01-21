@@ -10,21 +10,75 @@ import Foundation
 import UIKit
 import CoreLocation
 
+// , CLLocationManagerDelegate
 class BeaconTableViewController : UITableViewController {
     var ourBeacons : [CLBeacon] = []
-    var items : [beacon] = []
+    var items = [beacon]()
     var indexOfSelectedPerson = 0;
+    var MYbeacons : [CLBeacon] = []
+    var users : NSArray = [];
+    var Myusers : NSArray = [];
+    
+// IBEACON
+//        let locationManager = CLLocationManager()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("we INT TABLE VIEW CONTRL")
-        print(ourBeacons.count)
-        var currentbec : beacon
-        for bec in ourBeacons {
-            currentbec = beacon(minor : bec.minor, major : bec.major)
-            items += [currentbec]
+        //       BLE-STANDARD
+        let uuidStr: String = "B9407F30-F5F8-466E-AFF9-25556B57FE99"
+        let uuid: CBUUID = CBUUID(string:uuidStr)
+        let discovery: Discovery = Discovery(UUID: uuid, username: "FirstResponder-Searchlight") { (users,usersChanged) -> Void in
+            print("BLEStandard - Found:",users.count)
+            // this reload logic is dangerous and unrealable!!!!
+            var reload : Bool = false;
+            if (self.Myusers.count != users.count) {
+                reload = true;
+            }
+            self.Myusers = users
+            dispatch_async(dispatch_get_main_queue()) {
+                if (reload) {
+                    self.tableView.reloadData()
+                }
+            }
         }
     }
+
+// ALL IBEACON
+//        let string:String = "2F234454-CF6D-4A0F-ADF2-F4911BA9FFA6"
+//        let beaconUUID:NSUUID? = NSUUID(UUIDString: string)
+//        let region = CLBeaconRegion(proximityUUID: beaconUUID! , identifier: "yaya")
+//        
+//        locationManager.delegate = self;
+//        if (CLLocationManager.authorizationStatus() != CLAuthorizationStatus.AuthorizedWhenInUse) {
+//            locationManager.requestWhenInUseAuthorization()
+//            print("should've requested")
+//        }
+//        locationManager.startRangingBeaconsInRegion(region)
+//    }
+    
+//
+//    func locationManager(manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], inRegion region: CLBeaconRegion){
+//        // this reload logic is dangerous!!!!
+//        var reload : Bool = false;
+//        if (beacons.count != MYbeacons.count) {
+//            reload = true;
+//        }
+//        MYbeacons = beacons
+//        print("iBeacon2-")
+//        print(beacons)
+//        if (reload) {
+//            items = [];
+//            self.tableView.reloadData()
+//        }
+//    }
+// ALL IBEACON
+    
+    func viewDidAppear() {
+        print("did appear");
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -32,28 +86,48 @@ class BeaconTableViewController : UITableViewController {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count;
+        return Myusers.count;
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ListViewCell", forIndexPath: indexPath) as! UITableViewCell
-        let item = items[indexPath.row]
-        var name : String
-        name = item.first_name!
-        name += " "
-        name += item.last_name!
-        cell.textLabel?.text = name
-        return cell
-    }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        indexOfSelectedPerson = indexPath.row
+        print("reload table");
+        let cell = tableView.dequeueReusableCellWithIdentifier("ListViewCell", forIndexPath: indexPath)
+        
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            print("we put into queue")
+            let currentbec = beacon(major : self.Myusers[indexPath.row].username)
+            print("username in queueu: %s",self.Myusers[indexPath.row].username );
+//            let currentbec = beacon(minor : self.MYbeacons[indexPath.row].minor, major : self.MYbeacons[indexPath.row].major)
+            dispatch_async(dispatch_get_main_queue()) {
+                print("we spit out of queueu");
+                print("%s",currentbec.major);
+                print("%s",currentbec.first_name);
+                self.items.append(currentbec);
+                
+                    var name : String
+                    name = currentbec.first_name!
+                    name += " "
+                    name += currentbec.last_name!
+                    cell.textLabel?.text = name
+            
+                    var Cloudinary:CLCloudinary
+                    Cloudinary = CLCloudinary(url: "cloudinary://284447624913469:es22vnmqabWTvibjnkZNzQhaYqE@dat999xkb")
+                    let uurl = NSURL(string: Cloudinary.url(currentbec.image_name) as String)
+                    let data = NSData(contentsOfURL: uurl!)
+                    cell.imageView!.image = UIImage(data: data!)
+            }
+        }
+//        cell.textLabel?.text = "dog"
+        return cell;
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if let cell = sender as? UITableView {
-//            let i = redditListTableView.indexPathForCell(cell)!.row
-            let sendbec = items[indexOfSelectedPerson]
+            let cell = (sender as! UITableViewCell)
+            print("%s", cell.textLabel?.text)
+            let path = self.tableView.indexPathForCell(cell)
+            let row = path?.row
+            let sendbec = items[row!]
             let DestinationVC = segue.destinationViewController as! ShowViewController
             DestinationVC.bec = sendbec
 //        }

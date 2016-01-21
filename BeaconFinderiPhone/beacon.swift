@@ -20,6 +20,16 @@ class beacon {
     var chronic : String?
     var medication : String?
     var organ_donor : String?
+    var image_name : String?
+    var secure_url : String?
+    
+    convenience init(major : String) {
+        print("in init");
+        print(major);
+        let returnmajor: Int? = Int(major)
+//        var returnmajor : NSNumber = major.intValue;
+        self.init( minor: 0, major:returnmajor!)
+    }
     
     init(minor : NSNumber, major : NSNumber) {
         self.minor = minor
@@ -28,7 +38,7 @@ class beacon {
         print(self.minor);
         print(self.major);
 //        self.ID = "0000000000000000"
-//        print("In the initializer")
+        print("In the initializer")
 //        let urlString = NSString(format: "http://128.61.42.33:3000/personal_health_records/give_health_record?id=%s", major)
         var urlString = "https://fathomless-inlet-3449.herokuapp.com";
         urlString += "/personal_health_records/give_health_record?id=";
@@ -40,7 +50,7 @@ class beacon {
         HTTPGet(urlString as String) {
             (data: String, error: String?) -> Void in
             if error != nil {
-//                print(error)
+                print(error)
             } else {
                 print("data is : \n\n\n")
                 print(data)
@@ -78,6 +88,12 @@ class beacon {
                     
                     if let donor = (jsonObject as! NSDictionary)["organ_donor"] as! String? {
                         self.organ_donor = donor
+                    }
+                    if let donor = (jsonObject as! NSDictionary)["image_name"] as! String? {
+                        self.image_name = donor
+                    }
+                    if let donor = (jsonObject as! NSDictionary)["secure_url"] as! String? {
+                        self.secure_url = donor
                     }
                 } catch let error as NSError {
                     print("in error")

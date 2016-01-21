@@ -18,6 +18,11 @@ class ShowViewController : UIViewController {
     @IBOutlet weak var medication: UILabel!
     @IBOutlet weak var chronic: UILabel!
     @IBOutlet weak var Orgon: UILabel!
+    @IBOutlet weak var imageURL: UIImageView?
+    @IBOutlet weak var notes: UITextField!
+    @IBOutlet weak var condition: UITextField!
+    
+    
     var bec : beacon?
     var major : String?
     
@@ -31,6 +36,11 @@ class ShowViewController : UIViewController {
         medication.text = bec!.medication
         chronic.text = bec!.chronic
         Orgon.text = bec!.organ_donor
+        var Cloudinary:CLCloudinary
+        Cloudinary = CLCloudinary(url: "cloudinary://284447624913469:es22vnmqabWTvibjnkZNzQhaYqE@dat999xkb")
+        let uurl = NSURL(string: Cloudinary.url(bec!.image_name) as String)
+        let data = NSData(contentsOfURL: uurl!)
+        imageURL!.image = UIImage(data: data!)
     }
     
     func HTTPsendRequest(request: NSMutableURLRequest,callback: (String, String?) -> Void) {
@@ -59,9 +69,25 @@ class ShowViewController : UIViewController {
     
     @IBAction func Push(sender: AnyObject) {
         print("push was called")
+        let note: String = notes.text!
+        let condit: String = condition.text!
+        
+        let noteString = note.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        let conditString = condit.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.LiteralSearch, range: nil)
+        
+        print(conditString)
+        
+        print("ya bish?")
+        print(note)
+        print(condit)
         var urlString = "https://fathomless-inlet-3449.herokuapp.com"
         urlString += "/emergency_alerts/create_alert_modaly?id="
         urlString += bec!.major!
+        urlString += "?"
+        urlString += noteString
+        urlString += "?"
+        urlString += conditString
+        
         print(urlString)
         HTTPGet(urlString) {
             (data: String, error: String?) -> Void in
@@ -85,10 +111,9 @@ class ShowViewController : UIViewController {
                 myAlert.show()
             }
         }
-        sleep(4)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let DestinationVC = segue.destinationViewController as! HomeViewController
+        let DestinationVC = segue.destinationViewController as! BeaconTableViewController
     }
 }
