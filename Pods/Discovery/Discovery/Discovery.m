@@ -134,7 +134,7 @@
 
 - (void)stopTimer {
     [self.timer invalidate];
-    self.timer = nil;
+//    self.timer = nil;
 }
 
 - (void)setUpdateInterval:(NSTimeInterval)updateInterval {
@@ -338,10 +338,11 @@
                 [self.centralManager connectPeripheral:peripheral options:nil];
             }
         }
-        if(bleUser.identified == NO & peripheral.name.length < 10) {
-            bleUser.username = peripheral.name;
-            bleUser.identified = YES;
-        }
+        ////// ::::::::::::::::::::::: //////
+//        if(bleUser.identified == NO & peripheral.name.length < 10) {
+//            bleUser.username = peripheral.name;
+//            bleUser.identified = YES;
+//        }
     }
     
     // update the rss and update time

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		161596A81BBECA6500C07C98 /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161596A71BBECA6500C07C98 /* ShowViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		161596A81BBECA6500C07C98 /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161596A71BBECA6500C07C98 /* ShowViewController.swift */; };
 		161FCBA61BB8757F001B7F45 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161FCBA51BB8757F001B7F45 /* AppDelegate.swift */; };
 		161FCBA81BB8757F001B7F45 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161FCBA71BB8757F001B7F45 /* HomeViewController.swift */; };
 		161FCBAB1BB8757F001B7F45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 161FCBA91BB8757F001B7F45 /* Main.storyboard */; };
@@ -15,11 +15,11 @@
 		161FCBB01BB8757F001B7F45 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 161FCBAE1BB8757F001B7F45 /* LaunchScreen.storyboard */; };
 		161FCBBB1BB8757F001B7F45 /* BeaconFinderiPhoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161FCBBA1BB8757F001B7F45 /* BeaconFinderiPhoneTests.swift */; };
 		161FCBC61BB8757F001B7F45 /* BeaconFinderiPhoneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161FCBC51BB8757F001B7F45 /* BeaconFinderiPhoneUITests.swift */; };
-		161FCBD61BB8762E001B7F45 /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161FCBD51BB8762E001B7F45 /* Properties.swift */; settings = {ASSET_TAGS = (); }; };
-		162186CE1BB8951800FBC687 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162186CD1BB8951800FBC687 /* File.swift */; settings = {ASSET_TAGS = (); }; };
-		162186D01BB8953600FBC687 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162186CF1BB8953600FBC687 /* SettingViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		162186D21BB8977300FBC687 /* beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162186D11BB8977300FBC687 /* beacon.swift */; settings = {ASSET_TAGS = (); }; };
-		16B9C58C1BB8A8F80099198C /* BeaconTableViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B9C58B1BB8A8F80099198C /* BeaconTableViewContoller.swift */; settings = {ASSET_TAGS = (); }; };
+		161FCBD61BB8762E001B7F45 /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 161FCBD51BB8762E001B7F45 /* Properties.swift */; };
+		162186CE1BB8951800FBC687 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162186CD1BB8951800FBC687 /* File.swift */; };
+		162186D01BB8953600FBC687 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162186CF1BB8953600FBC687 /* SettingViewController.swift */; };
+		162186D21BB8977300FBC687 /* beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162186D11BB8977300FBC687 /* beacon.swift */; };
+		16B9C58C1BB8A8F80099198C /* BeaconTableViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B9C58B1BB8A8F80099198C /* BeaconTableViewContoller.swift */; };
 		87A7DD8CA4F2E71B817FF75D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D00EF54DA7BBC7D54A91D904 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -240,7 +240,7 @@
 				TargetAttributes = {
 					161FCBA11BB8757F001B7F45 = {
 						CreatedOnToolsVersion = 7.0;
-						DevelopmentTeam = TC773UYYYN;
+						DevelopmentTeam = NNV3S68243;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;

@@ -101,11 +101,15 @@ class BeaconTableViewController : UITableViewController {
 //            let currentbec = beacon(minor : self.MYbeacons[indexPath.row].minor, major : self.MYbeacons[indexPath.row].major)
             dispatch_async(dispatch_get_main_queue()) {
                 print("we spit out of queueu");
-                print("%s",currentbec.major);
-                print("%s",currentbec.first_name);
-                self.items.append(currentbec);
+//                print("%s",currentbec.first_name);
                 
                     var name : String
+                print("we chillen2");
+                if(currentbec.first_name == nil) {
+                    sleep(10)
+                    print("we chillen");
+                }
+                print("we chillen2");
                     name = currentbec.first_name!
                     name += " "
                     name += currentbec.last_name!
@@ -116,9 +120,11 @@ class BeaconTableViewController : UITableViewController {
                     let uurl = NSURL(string: Cloudinary.url(currentbec.image_name) as String)
                     let data = NSData(contentsOfURL: uurl!)
                     cell.imageView!.image = UIImage(data: data!)
+                    self.items.append(currentbec);
+                    self.items[indexPath.row] = currentbec;
             }
         }
-//        cell.textLabel?.text = "dog"
+//        cell.textLabel?.text = name
         return cell;
     }
     
@@ -127,6 +133,7 @@ class BeaconTableViewController : UITableViewController {
             print("%s", cell.textLabel?.text)
             let path = self.tableView.indexPathForCell(cell)
             let row = path?.row
+            print("%s", row)
             let sendbec = items[row!]
             let DestinationVC = segue.destinationViewController as! ShowViewController
             DestinationVC.bec = sendbec

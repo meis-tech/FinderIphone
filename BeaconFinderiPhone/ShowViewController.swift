@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 
 class ShowViewController : UIViewController {
+    @IBOutlet weak var cover: UIImageView!
+    
     @IBOutlet weak var firstname: UILabel!
     @IBOutlet weak var lastname: UILabel!
     @IBOutlet weak var DOB: UILabel!
@@ -41,6 +43,8 @@ class ShowViewController : UIViewController {
         let uurl = NSURL(string: Cloudinary.url(bec!.image_name) as String)
         let data = NSData(contentsOfURL: uurl!)
         imageURL!.image = UIImage(data: data!)
+        let datas = NSData(contentsOfURL:NSURL(string: "http://res.cloudinary.com/dat999xkb/image/upload/v1454394475/greg2_tlrbfd.jpg")!)
+        cover!.image = UIImage(data: datas!)
     }
     
     func HTTPsendRequest(request: NSMutableURLRequest,callback: (String, String?) -> Void) {
